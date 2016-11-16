@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+import sys
+
 from environment import *
 
 def tokenize(chars):
@@ -42,5 +44,20 @@ def schemestr(exp):
 	else:
 		return str(exp)
 
+def eval_file(filename):
+	with open(filename, 'r') as file:
+		data = file.read()
+		val = eval(parse(data))
+		if val is not None:
+			print(schemestr(val))
+
+def main():
+	if len(sys.argv) > 1:
+		eval_file(sys.argv[1])
+	else:
+		repl()
+
 program = "(begin (define r 10) (* pi (* r r)))"
-repl()
+
+if __name__ == '__main__':
+	main()

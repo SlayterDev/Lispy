@@ -37,7 +37,7 @@ def standard_env():
 		'cdr':	      lambda x: x[1:],
 		'cons':	      lambda x,y: [x] + y,
 		'eq?':	      op.is_,
-		'equal?':      op.eq,
+		'equal?':     op.eq,
 		'length':     len,
 		'list':	      lambda *x: list(x),
 		'list?':      lambda x: isinstance(x, list),
